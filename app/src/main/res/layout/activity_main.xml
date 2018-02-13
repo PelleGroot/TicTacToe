@@ -1,18 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="nl.pellegroot.tictactoe.MainActivity">
 
-    <TextView
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_weight="1">
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/But1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:onClick="tileClicked"
+            android:text="@string/button1"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:onClick="tileClicked"
+            android:text="@string/button2"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:onClick="tileClicked"
+            android:text="@string/button3"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:onClick="tileClicked"
+            android:text="@string/button4"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:onClick="tileClicked"
+            android:text="@string/button5"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:onClick="tileClicked"
+            android:text="@string/button6"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="2"
+            android:layout_row="0"
+            android:onClick="tileClicked"
+            android:text="@string/button7"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="2"
+            android:layout_row="1"
+            android:onClick="tileClicked"
+            android:text="@string/button8"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/But9"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_column="2"
+            android:layout_row="2"
+            android:onClick="tileClicked"
+            android:text="@string/button9"
+            android:visibility="visible" />
+    </GridLayout>
+
+    <Button
+        android:id="@+id/NewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="resetClicked"
+        android:text="@string/NewGame"
+        android:visibility="visible" />
+</LinearLayout>
