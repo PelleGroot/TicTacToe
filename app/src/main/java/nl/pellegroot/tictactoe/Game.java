@@ -21,19 +21,17 @@ public class Game {
     }
 
     public GameTile draw(int row, int column){
-        if (board[row][column] == GameTile.BLANK){
+        if ((board[row][column] == GameTile.BLANK)){
             if (playerOneTurn){
                 playerOneTurn = false;
                 movesPlayed += 1;
                 board[row][column] = GameTile.CROSS;
-                gameState();
                 return GameTile.CROSS;
             }
             else{
                 playerOneTurn = true;
                 movesPlayed += 1;
                 board[row][column] = GameTile.CIRCLE;
-                gameState();
                 return GameTile.CIRCLE;
             }
         }
@@ -43,11 +41,7 @@ public class Game {
         }
     }
     public GameState gameState(){
-        if (movesPlayed == 9){
-            gameOver = true;
-            return GameState.DRAW;
-        }
-        else if((board[0][0]== GameTile.CROSS && board[0][1] == GameTile.CROSS && board[0][2]== GameTile.CROSS)||(board[1][0]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[1][2]== GameTile.CROSS) || (board[2][0]== GameTile.CROSS && board[2][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)){
+        if((board[0][0]== GameTile.CROSS && board[0][1] == GameTile.CROSS && board[0][2]== GameTile.CROSS)||(board[1][0]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[1][2]== GameTile.CROSS) || (board[2][0]== GameTile.CROSS && board[2][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)){
             Log.d("GameState", "PlayerOne");
             gameOver = true;
             return GameState.PLAYER_ONE;
@@ -56,6 +50,10 @@ public class Game {
             Log.d("GameState", "PlayerTwo");
             gameOver = true;
             return GameState.PLAYER_TWO;
+        }
+        else if (movesPlayed == 9){
+            gameOver = true;
+            return GameState.DRAW;
         }
         else {
             return GameState.IN_PROGRESS;
