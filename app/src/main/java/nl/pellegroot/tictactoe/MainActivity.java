@@ -19,10 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void tileClicked(View view){
 
+        // find the id of the button is clicked
         int id = view.getId();
         Button button = (Button) findViewById(id);
-        String idName = button.getText().toString();
-        switch(idName){
+
+        // find the tag of the clicked button
+        String ButTag = button.getTag().toString();
+
+        // set the row and column number of the clicked button
+        switch(ButTag){
             case "But1":
                 row = 0;
                 column = 0;
@@ -60,26 +65,37 @@ public class MainActivity extends AppCompatActivity {
                 column = 2;
                 break;
         }
-        Log.d("button", "tileClicked: " + idName + " " + row + " " + column);
+//        Log.d("button", "tileClicked: " + ButTag + " " + row + " " + column + " " + view.findViewWithTag(ButTag));
 
-      GameTile tile = game.draw(row, column);
+        // draw
+        GameTile tile = game.draw(row, column);
 
         switch(tile) {
             case CROSS:
-                // do something;
+                // switch current empty spot with an X
+                button.setText("X");
                 break;
+
             case CIRCLE:
-                // do something
+                // switch current empty spot with an O
+                button.setText("O");
                 break;
+
             case INVALID:
-                //do something
+                // move is invalid, show error?
+
                 break;
         }
     }
 
-    public void resetClicked(){
-       game = new Game();
-
+    public void resetClicked(View view){
+        game = new Game();
+        // reset UI
+//        for(int i=1; i<10; i++){
+//            String ButTag = ("But" + i);
+//            Button button = view.findViewWithTag(ButTag);
+//            button.setText(" ");
+//        }
     }
 
 
