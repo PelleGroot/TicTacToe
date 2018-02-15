@@ -46,7 +46,9 @@ public class Game {
             gameOver = true;
             return GameState.PLAYER_ONE;
         }
-        else if((board[0][0]== GameTile.CIRCLE && board[0][1] == GameTile.CIRCLE && board[0][2]== GameTile.CIRCLE)||(board[1][0]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[1][2]== GameTile.CIRCLE) || (board[2][0]== GameTile.CIRCLE && board[2][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)) {
+        else if((board[0][0]== GameTile.CIRCLE && board[0][1] == GameTile.CIRCLE && board[0][2]== GameTile.CIRCLE)||
+                (board[1][0]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[1][2]== GameTile.CIRCLE)||
+                (board[2][0]== GameTile.CIRCLE && board[2][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)) {
             Log.d("GameState", "PlayerTwo");
             gameOver = true;
             return GameState.PLAYER_TWO;

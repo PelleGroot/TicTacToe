@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     public int row;
     public int column;
@@ -23,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     public void tileClicked(View view){
 
         // create gamestate
-        GameState state = game.gameState();
         TextView textview = (TextView) findViewById(R.id.textView1);
 
         // find the id of the button is clicked
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // check the state of the game and write messages
-        switch(state){
+        switch(game.gameState()){
             case PLAYER_ONE:
                 textview.setText("Player one wins!");
                 break;
