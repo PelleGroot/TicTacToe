@@ -1,31 +1,42 @@
 package nl.pellegroot.tictactoe;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public int row;
     public int column;
+    Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // create new game
+        game = new Game();
+        Log.d("main activity", "onCreate ");
     }
 
-    // create new game
-    Game game = new Game();
+    //TODO: add instanceState variables
+//    @Override
+//    public void onSaveInstanceState(Bundle outState){
+//        outState.;
+//        outState.;
+//        outState.;
+//        outState.;
+//        outState.;
+//        super.onSaveInstanceState(outState);
+//    }
 
     public void tileClicked(View view){
 
-        // create gamestate
+        // create textview
         TextView textview = (TextView) findViewById(R.id.textView1);
 
         // find the id of the button is clicked
@@ -95,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
                 textview.setText("Invalid move");
                 break;
         }
-
+        GameState gamestate;
         // check the state of the game and write messages
-        switch(game.gameState()){
+        switch(gamestate = game.gameState()){
             case PLAYER_ONE:
                 textview.setText("Player one wins!");
                 break;
@@ -110,12 +121,33 @@ public class MainActivity extends AppCompatActivity {
             case IN_PROGRESS:
                 break;
         }
+        Log.d("Gamestate:", " " + gamestate);
+    }
+
+    private void clearButtonText(@IdRes int id) {
+        Button button = (Button) findViewById(id);
+        button.setText("");
+    }
+
+    private void clearScreen() {
+        clearButtonText(R.id.But1);
+        clearButtonText(R.id.But2);
+        clearButtonText(R.id.But3);
+        clearButtonText(R.id.But4);
+        clearButtonText(R.id.But5);
+        clearButtonText(R.id.But6);
+        clearButtonText(R.id.But7);
+        clearButtonText(R.id.But8);
+        clearButtonText(R.id.But9);
+
+        TextView textview = (TextView) findViewById(R.id.textView1);
+        textview.setText("");
     }
 
     public void resetClicked(View view){
         // create new game
         game = new Game();
         // reset UI
-
+        this.clearScreen();
     }
 }
