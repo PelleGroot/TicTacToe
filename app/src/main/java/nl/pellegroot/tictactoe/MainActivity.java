@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     //TODO: add instanceState variables
 //    @Override
 //    public void onSaveInstanceState(Bundle outState){
-//        outState.;
+//        outState.putBoolean(CURRENT_PLAYER, game.playerOneTurn());
 //        outState.;
 //        outState.;
 //        outState.;
