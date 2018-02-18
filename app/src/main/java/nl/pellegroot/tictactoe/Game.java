@@ -21,7 +21,7 @@ public class Game {
     }
 
     public GameTile draw(int row, int column){
-        if ((board[row][column] == GameTile.BLANK)){
+        if ((board[row][column] == GameTile.BLANK) && (!gameOver)){
             if (playerOneTurn){
                 playerOneTurn = false;
                 movesPlayed += 1;

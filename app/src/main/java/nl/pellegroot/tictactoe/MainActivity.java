@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     public int column;
     Game game;
 
+//    private static String CURRENT_PLAYER = "playerOneTurn";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //TODO: add instanceState variables
-//    @Override
-//    public void onSaveInstanceState(Bundle outState){
+    @Override
+    public void onSaveInstanceState(Bundle outState){
 //        outState.putBoolean(CURRENT_PLAYER, game.playerOneTurn());
 //        outState.;
 //        outState.;
 //        outState.;
 //        outState.;
-//        super.onSaveInstanceState(outState);
-//    }
+        super.onSaveInstanceState(outState);
+    }
 
     public void tileClicked(View view){
 
