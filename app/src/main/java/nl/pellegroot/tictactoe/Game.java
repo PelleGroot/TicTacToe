@@ -40,20 +40,30 @@ public class Game {
             return GameTile.INVALID;
         }
     }
-    // TODO: add more rules
+
     public GameState gameState(){
         if((board[0][0]== GameTile.CROSS && board[0][1] == GameTile.CROSS && board[0][2]== GameTile.CROSS)||
                 (board[1][0]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[1][2]== GameTile.CROSS)||
-                (board[2][0]== GameTile.CROSS && board[2][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)){
-            Log.d("GameState", "PlayerOne");
+                (board[2][0]== GameTile.CROSS && board[2][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)||
+                (board[0][0]== GameTile.CROSS && board[1][0] == GameTile.CROSS && board[2][0]== GameTile.CROSS)||
+                (board[0][1]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[2][1]== GameTile.CROSS)||
+                (board[0][2]== GameTile.CROSS && board[1][2] == GameTile.CROSS && board[2][2]== GameTile.CROSS)||
+                (board[0][0]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)||
+                (board[0][2]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[2][0]== GameTile.CROSS)){
+//            Log.d("GameState", "PlayerOne");
             gameOver = true;
             return GameState.PLAYER_ONE;
         }
-        // TODO: add more rules
+
         else if((board[0][0]== GameTile.CIRCLE && board[0][1] == GameTile.CIRCLE && board[0][2]== GameTile.CIRCLE)||
                 (board[1][0]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[1][2]== GameTile.CIRCLE)||
-                (board[2][0]== GameTile.CIRCLE && board[2][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)) {
-            Log.d("GameState", "PlayerTwo");
+                (board[2][0]== GameTile.CIRCLE && board[2][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)||
+                (board[0][0]== GameTile.CIRCLE && board[1][0] == GameTile.CIRCLE && board[2][0]== GameTile.CIRCLE)||
+                (board[0][1]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[2][1]== GameTile.CIRCLE)||
+                (board[0][2]== GameTile.CIRCLE && board[1][2] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)||
+                (board[0][0]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)||
+                (board[0][2]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[2][0]== GameTile.CIRCLE)){
+//            Log.d("GameState", "PlayerTwo");
             gameOver = true;
             return GameState.PLAYER_TWO;
         }
