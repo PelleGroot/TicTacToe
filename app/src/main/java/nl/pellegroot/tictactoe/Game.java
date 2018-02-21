@@ -2,7 +2,9 @@ package nl.pellegroot.tictactoe;
 
 import android.util.Log;
 
-public class Game {
+import java.io.Serializable;
+
+public class Game implements Serializable{
     final private int BOARD_SIZE = 3;
     private GameTile[][] board;
     private Boolean playerOneTurn; // if true, player 1's turn

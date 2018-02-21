@@ -14,27 +14,30 @@ public class MainActivity extends AppCompatActivity {
     public int column;
     Game game;
 
-//    private static String CURRENT_PLAYER = "playerOneTurn";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // create new game
-        game = new Game();
-        Log.d("main activity", "onCreate ");
+
     }
 
-    //TODO: add instanceState variables
+    public  void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+        // create game
+        if (inState == null){
+             // create new game
+            game = new Game();
+        }
+        else {
+            // restore old game
+            game = (Game) inState.getSerializable("current");
+        }
+    }
+
     @Override
     public void onSaveInstanceState(Bundle outState){
-//        outState.putBoolean(CURRENT_PLAYER, game.playerOneTurn());
-//        outState.;
-//        outState.;
-//        outState.;
-//        outState.;
         super.onSaveInstanceState(outState);
+        outState.putSerializable("current", game);
     }
 
     public void tileClicked(View view){
@@ -128,11 +131,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearButtonText(@IdRes int id) {
+        // clear button method
         Button button = (Button) findViewById(id);
         button.setText("");
     }
 
     private void clearScreen() {
+        // selects buttons to clear
         clearButtonText(R.id.But1);
         clearButtonText(R.id.But2);
         clearButtonText(R.id.But3);
@@ -143,11 +148,12 @@ public class MainActivity extends AppCompatActivity {
         clearButtonText(R.id.But8);
         clearButtonText(R.id.But9);
 
+        // clear the textview
         TextView textview = (TextView) findViewById(R.id.textView1);
         textview.setText("");
     }
 
-    public void resetClicked(View view){
+    public void resetClicked(){
         // create new game
         game = new Game();
         // reset UI
