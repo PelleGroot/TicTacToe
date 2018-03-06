@@ -12,18 +12,23 @@ public class Game implements Serializable{
     private Boolean gameOver;
 
     public Game() {
+        // start a new game
         board = new GameTile[BOARD_SIZE][BOARD_SIZE];
+        // create board of blank tiles
         for(int i=0; i<BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 board[i][j] = GameTile.BLANK;
             }
         }
+        // set game to in progress and give player one the turn
         playerOneTurn = true;
         gameOver = false;
     }
 
     public GameTile draw(int row, int column){
-        if ((board[row][column] == GameTile.BLANK) && (!gameOver)){
+        // check if the clicked tile is empty
+        if ((board[row][column] == GameTile.BLANK)){
+            // write the tile to cross or circle depending on who's turn it is
             if (playerOneTurn){
                 playerOneTurn = false;
                 movesPlayed += 1;
@@ -37,6 +42,7 @@ public class Game implements Serializable{
                 return GameTile.CIRCLE;
             }
         }
+        // move is invalid
         else{
             Log.d("INVALID", "This move is invalid!");
             return GameTile.INVALID;
@@ -44,6 +50,7 @@ public class Game implements Serializable{
     }
 
     public GameState gameState(){
+        // if player one wins
         if((board[0][0]== GameTile.CROSS && board[0][1] == GameTile.CROSS && board[0][2]== GameTile.CROSS)||
                 (board[1][0]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[1][2]== GameTile.CROSS)||
                 (board[2][0]== GameTile.CROSS && board[2][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)||
@@ -53,10 +60,11 @@ public class Game implements Serializable{
                 (board[0][0]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[2][2]== GameTile.CROSS)||
                 (board[0][2]== GameTile.CROSS && board[1][1] == GameTile.CROSS && board[2][0]== GameTile.CROSS)){
 //            Log.d("GameState", "PlayerOne");
+            // end the game
             gameOver = true;
             return GameState.PLAYER_ONE;
         }
-
+        // if player 2 wins
         else if((board[0][0]== GameTile.CIRCLE && board[0][1] == GameTile.CIRCLE && board[0][2]== GameTile.CIRCLE)||
                 (board[1][0]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[1][2]== GameTile.CIRCLE)||
                 (board[2][0]== GameTile.CIRCLE && board[2][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)||
@@ -66,14 +74,18 @@ public class Game implements Serializable{
                 (board[0][0]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[2][2]== GameTile.CIRCLE)||
                 (board[0][2]== GameTile.CIRCLE && board[1][1] == GameTile.CIRCLE && board[2][0]== GameTile.CIRCLE)){
 //            Log.d("GameState", "PlayerTwo");
+            // end the game
             gameOver = true;
             return GameState.PLAYER_TWO;
         }
+        // game is a draw
         else if (movesPlayed == 9){
+            // end the game
             gameOver = true;
             return GameState.DRAW;
         }
         else {
+            // game is in process
             return GameState.IN_PROGRESS;
         }
     }

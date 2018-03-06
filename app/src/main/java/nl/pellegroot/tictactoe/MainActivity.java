@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         // find the tag of the clicked button
         String ButTag = button.getTag().toString();
-
+        Log.d("Before cases ", "tileClicked: " + ButTag);
         // set the row and column number of the clicked button
         switch(ButTag){
             case "But1":
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 column = 2;
                 break;
         }
-//        Log.d("button", "tileClicked: " + ButTag + " " + row + " " + column);
+        Log.d("button", "tileClicked: " + ButTag + " " + row + " " + column);
 
         // draw the game
         GameTile tile = game.draw(row, column);
@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         textview.setText("");
     }
 
+    // to clean the whole screen
     public void resetClicked(){
         // create new game
         game = new Game();
@@ -160,3 +161,4 @@ public class MainActivity extends AppCompatActivity {
         this.clearScreen();
     }
 }
+// TODO: Figure out why the onClick all of a sudden doesn't work anymore
