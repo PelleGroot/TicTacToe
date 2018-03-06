@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        game = new Game();
     }
 
     public  void onRestoreInstanceState(Bundle inState) {
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // to clean the whole screen
-    public void resetClicked(){
+    public void resetClicked(View view){
         // create new game
         game = new Game();
         // reset UI

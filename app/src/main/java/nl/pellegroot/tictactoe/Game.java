@@ -27,7 +27,7 @@ public class Game implements Serializable{
 
     public GameTile draw(int row, int column){
         // check if the clicked tile is empty
-        if ((board[row][column] == GameTile.BLANK)){
+        if ((board[row][column] == GameTile.BLANK) && (!gameOver)){
             // write the tile to cross or circle depending on who's turn it is
             if (playerOneTurn){
                 playerOneTurn = false;
