@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-
 public class MainActivity extends AppCompatActivity {
     public int row;
     public int column;
@@ -35,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             game = (Game) inState.getSerializable("current");
         }
 
+        // retrieve and set the buttons clicked and textview
         Button button1 = (Button) findViewById(R.id.But1);
         Button button2 = (Button) findViewById(R.id.But2);
         Button button3 = (Button) findViewById(R.id.But3);
@@ -56,14 +54,15 @@ public class MainActivity extends AppCompatActivity {
         button8.setText(inState.getString("BUT8"));
         button9.setText(inState.getString("BUT9"));
         textView.setText(inState.getString("TEXTVIEW"));
-
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
+        // save the gamestate
         outState.putSerializable("current", game);
 
+        // save the buttons clicked and the textview
         Button button1 = (Button) findViewById(R.id.But1);
         Button button2 = (Button) findViewById(R.id.But2);
         Button button3 = (Button) findViewById(R.id.But3);
@@ -208,4 +207,3 @@ public class MainActivity extends AppCompatActivity {
         this.clearScreen();
     }
 }
-// TODO: Figure out why the onClick all of a sudden doesn't work anymore
