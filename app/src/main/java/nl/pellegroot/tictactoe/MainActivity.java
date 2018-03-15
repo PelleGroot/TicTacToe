@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity {
     public int row;
@@ -32,12 +34,57 @@ public class MainActivity extends AppCompatActivity {
             // restore old game
             game = (Game) inState.getSerializable("current");
         }
+
+        Button button1 = (Button) findViewById(R.id.But1);
+        Button button2 = (Button) findViewById(R.id.But2);
+        Button button3 = (Button) findViewById(R.id.But3);
+        Button button4 = (Button) findViewById(R.id.But4);
+        Button button5 = (Button) findViewById(R.id.But5);
+        Button button6 = (Button) findViewById(R.id.But6);
+        Button button7 = (Button) findViewById(R.id.But7);
+        Button button8 = (Button) findViewById(R.id.But8);
+        Button button9 = (Button) findViewById(R.id.But9);
+        TextView textView = (TextView) findViewById(R.id.textView1);
+
+        button1.setText(inState.getString("BUT1"));
+        button2.setText(inState.getString("BUT2"));
+        button3.setText(inState.getString("BUT3"));
+        button4.setText(inState.getString("BUT4"));
+        button5.setText(inState.getString("BUT5"));
+        button6.setText(inState.getString("BUT6"));
+        button7.setText(inState.getString("BUT7"));
+        button8.setText(inState.getString("BUT8"));
+        button9.setText(inState.getString("BUT9"));
+        textView.setText(inState.getString("TEXTVIEW"));
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
         outState.putSerializable("current", game);
+
+        Button button1 = (Button) findViewById(R.id.But1);
+        Button button2 = (Button) findViewById(R.id.But2);
+        Button button3 = (Button) findViewById(R.id.But3);
+        Button button4 = (Button) findViewById(R.id.But4);
+        Button button5 = (Button) findViewById(R.id.But5);
+        Button button6 = (Button) findViewById(R.id.But6);
+        Button button7 = (Button) findViewById(R.id.But7);
+        Button button8 = (Button) findViewById(R.id.But8);
+        Button button9 = (Button) findViewById(R.id.But9);
+        TextView textView = (TextView) findViewById(R.id.textView1);
+
+        outState.putString("BUT1", (button1.getText()).toString());
+        outState.putString("BUT2", (button2.getText()).toString());
+        outState.putString("BUT3", (button3.getText()).toString());
+        outState.putString("BUT4", (button4.getText()).toString());
+        outState.putString("BUT5", (button5.getText()).toString());
+        outState.putString("BUT6", (button6.getText()).toString());
+        outState.putString("BUT7", (button7.getText()).toString());
+        outState.putString("BUT8", (button8.getText()).toString());
+        outState.putString("BUT9", (button9.getText()).toString());
+        outState.putString("TEXTVIEW", (textView.getText().toString()));
     }
 
     public void tileClicked(View view){
