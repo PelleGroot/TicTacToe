@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
         // find the tag of the clicked button
         String ButTag = button.getTag().toString();
-        Log.d("Before cases ", "tileClicked: " + ButTag);
         // set the row and column number of the clicked button
         switch(ButTag){
             case "But1":
@@ -137,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 column = 2;
                 break;
         }
-        Log.d("button", "tileClicked: " + ButTag + " " + row + " " + column);
 
         // draw the game
         GameTile tile = game.draw(row, column);
@@ -173,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
             case IN_PROGRESS:
                 break;
         }
-        Log.d("Gamestate:", " " + gamestate);
     }
 
     private void clearButtonText(@IdRes int id) {

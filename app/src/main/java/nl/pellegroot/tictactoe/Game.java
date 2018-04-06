@@ -44,7 +44,6 @@ public class Game implements Serializable{
         }
         // move is invalid
         else{
-            Log.d("INVALID", "This move is invalid!");
             return GameTile.INVALID;
         }
     }
